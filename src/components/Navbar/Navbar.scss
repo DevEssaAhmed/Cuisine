@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(209, 213, 219);
+  width: 100vw;
+  height: 80px
+}
+.logo {
+  width: 220px;
+  /* margin: 10px 20px 0 30px; */
+
+  margin-left: 40px;
+  // margin-right:850px;
+  cursor: pointer;
+
+img:hover {
+  transform: scale(1.1);
+}
+}
+
+.nav-items{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+  li{
+    padding-right: 20px;
+    a{
+      text-decoration: none;
+      color: inherit;
+      &:hover{
+        color: crimson;
+      }
+    }
+    
+
+
+  }
+}
