@@ -14,8 +14,8 @@
   // margin-right:850px;
   cursor: pointer;
 
-img:hover {
-  transform: scale(1.1);
+&:hover {
+  transform: scale(1.05);
 }
 }
 

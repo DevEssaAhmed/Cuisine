@@ -1,0 +1,14 @@
+.product-card {
+padding: 20px;
+  width: 250px;
+  flex: 0 0 auto; /* ADD */
+  display: flex; /* ADD */
+  flex-direction: column; /* ADD */
+  position: relative;
+  text-align: center;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+  }
+}
