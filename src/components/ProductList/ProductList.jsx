@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductList.scss";
 import ProductCard from "../ProductCard/ProductCard";
-import data from "../../data/data.js";
+// import data from "../../data/data.js";
 import SearchBox from "../SearchBar/SearchBox";
+import { swiggy_api_URL } from "../../data/constants";
 
 const filterRestaurants = (searchText, restaurants) => {
   const filteredData = restaurants.filter((restaurant) =>
@@ -11,8 +12,18 @@ const filterRestaurants = (searchText, restaurants) => {
   return filteredData;
 };
 const ProductList = () => {
-  const [restaurants, setRestaurants] = useState(data);
+  const [restaurants, setRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  useEffect(() => {
+    getRestaurants();
+  }, []);
+
+  async function getRestaurants() {
+    const data = await fetch(swiggy_api_URL);
+    const json = await data.json();
+    setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+  }
 
   const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
