@@ -3,16 +3,18 @@ import "./ProductList.scss";
 import ProductCard from "../ProductCard/ProductCard";
 // import data from "../../data/data.js";
 import SearchBox from "../SearchBar/SearchBox";
+import ShimmerUI from "../ShimmerUI/ShimmerUI";
 import { swiggy_api_URL } from "../../data/constants";
 
 const filterRestaurants = (searchText, restaurants) => {
   const filteredData = restaurants.filter((restaurant) =>
-    restaurant.data.name.includes(searchText)
+    restaurant?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
   );
   return filteredData;
 };
 const ProductList = () => {
-  const [restaurants, setRestaurants] = useState([]);
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -22,7 +24,8 @@ const ProductList = () => {
   async function getRestaurants() {
     const data = await fetch(swiggy_api_URL);
     const json = await data.json();
-    setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
 
   const onSearchChange = (event) => {
@@ -31,30 +34,26 @@ const ProductList = () => {
   };
 
   const onButtonPress = () => {
-    const data = filterRestaurants(searchText, restaurants);
-    setRestaurants(data);
+    const data = filterRestaurants(searchText, allRestaurants);
+    setFilteredRestaurants(data);
   };
+  // ** Cam use optional chaining to not render of can do this
+  // *! If there is no data it will not render the component
+  // *? Early Return
+  if (!allRestaurants) return null;
 
-  return (
+  return allRestaurants?.length === 0 ? (
+    <ShimmerUI />
+  ) : (
     <>
-      {/* <input
-        className='search-box'
-        type='search'
-        placeholder='Search'
-        onChange={onSearchChange}
-      />
-      <button onClick={() => {
-        const data = filterRestaurants(searchText, restaurants);
-      setRestaurants(data); }}>
-        Search</button> */}
-
       <SearchBox
         onSearchChange={onSearchChange}
         onButtonPress={onButtonPress}
       />
 
       <div className='product-list'>
-        {restaurants.map((item) => {
+        
+        {filteredRestaurants.map((item) => {
           return <ProductCard key={item.data.id} {...item.data} />;
         })}
       </div>

@@ -1,0 +1,28 @@
+.landing-page{
+    background-image: url("../../assets/HeaderImgSmall.png");
+    background-repeat: no-repeat;
+    // background-position: fixed;
+    background-size: cover;
+    // height: 80vh;
+    color: white;
+}
+
+
+
+
+.landing-page{
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    min-height: 80vh;
+}
+
+.landing-page_heading{
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+}
+
+.landing-page_img{
+    padding: 10%;
+}

@@ -1,10 +1,19 @@
-import React from 'react'
-import "./HomePage"
+import React from "react";
+import "./HomePage.scss";
+
+import LandingPage from "./LandingPage";
+import ProductList from "../../components/ProductList/ProductList";
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <div className="homepage">
 
-export default HomePage
+      <LandingPage />
+
+      <ProductList />
+      <ProductList />
+    </div>
+  );
+};
+
+export default HomePage;

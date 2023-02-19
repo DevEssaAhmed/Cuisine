@@ -1,10 +1,22 @@
-.header {
+.nav {
   display: flex;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(209, 213, 219);
-  width: 100vw;
-  height: 80px
+  // background-color: rgba(209, 213, 219);
+  z-index: 1;
+  background-color: transparent;
+  width: 100%;
+  height: 80px;
+  backdrop-filter: blur(8px);
+  box-shadow: inset;
+  color: white;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+.scroll {
+  // color: black;
+  background-color: #ffcc00f5;
+  background-color: black;
 }
 .logo {
   width: 220px;
@@ -14,27 +26,44 @@
   // margin-right:850px;
   cursor: pointer;
 
-&:hover {
-  transform: scale(1.05);
-}
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
-.nav-items{
+.nav-items {
   list-style: none;
   display: flex;
   justify-content: space-between;
   margin-right: 20px;
-  li{
+  li {
     padding-right: 20px;
-    a{
-      text-decoration: none;
-      color: inherit;
-      &:hover{
-        color: crimson;
-      }
-    }
-    
-
-
+    // a{
+    //   text-decoration: none;
+    //   color: inherit;
+    //   &:hover{
+    //     color: #ffcc00;
+    //   }
+    // }
   }
+}
+.nav-links {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    color: #ffcc00;
+  }
+}
+.nav-links-scroll {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    color: black;
+  }
+}
+.nav-button{
+  outline: none;
+  border: none;
+  padding: 5px;
+  background-color: #ffcc00;
 }
