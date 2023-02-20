@@ -6,15 +6,17 @@ const SearchBox = ({ onButtonPress,onSearchChange }) => {
   
 
   return (
-    <>
-    <input
-      className='search-box'
-      type='search'
-      placeholder="Search"
-      onChange={onSearchChange}
-    />
-  <button onClick={onButtonPress} >Search</button>
-      </>
+    <div className="search-container">
+      <input
+        className='search-box'
+        type='search'
+        placeholder='Search'
+        onChange={onSearchChange}
+      />
+      <button className="search-button" onClick={onButtonPress}>
+        <i className='fa fa-search'></i>
+      </button>
+    </div>
   );
 
   }

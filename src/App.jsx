@@ -4,16 +4,32 @@ import Navbar from "./components/Navbar/Navbar";
 import ProductList from "./components/ProductList/ProductList";
 import SearchBar from "./components/SearchBar/SearchBox";
 import HomePage from "./pages/HomePage/HomePage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage"
+import ContactPage from "./pages/ContactPage/ContactPage";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/about",
+    element: <AboutPage />,
+  },
+  {
+    path: "/contact",
+    element: <ContactPage />,
+  },
+  {
+    path: "/checkout",
+    element: <CheckoutPage />,
+  },
+]);
 
 function App() {
-  return (
-    <div className='App'>
-
-      <Navbar />
-      <HomePage/>
-
-    </div>
-  );
+  return <RouterProvider router={appRouter} />;
 }
 
 export default App;

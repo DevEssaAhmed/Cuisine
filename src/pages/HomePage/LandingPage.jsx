@@ -8,12 +8,15 @@ const LandingPage = () => {
         <h1>Cuisine</h1>
         <p>
           Discover the best local restaurants in your area and enjoy delicious,
-          freshly-prepared meals delivered straight to your door with Cuisine -
+          <br />
+          freshly-prepared meals delivered straight to your door with
+          <br />
+           Cuisine -
           the ultimate food delivery experience.
         </p>
         <div>
-          <button>Explore</button>
-          <button>About Us</button>
+          <button className='btn btn-accent'>Explore</button>
+          <button className='btn btn-outline'>About Us</button>
         </div>
       </div>
       {/* <div className='landing-page_img'>

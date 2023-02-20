@@ -6,11 +6,9 @@ import ProductList from "../../components/ProductList/ProductList";
 
 const HomePage = () => {
   return (
-    <div className="homepage">
-
+    <div className='homepage'>
       <LandingPage />
 
-      <ProductList />
       <ProductList />
     </div>
   );

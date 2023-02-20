@@ -1,28 +1,62 @@
-.landing-page{
-    background-image: url("../../assets/HeaderImgSmall.png");
-    background-repeat: no-repeat;
-    // background-position: fixed;
-    background-size: cover;
-    // height: 80vh;
-    color: white;
+.landing-page {
+  padding: 20px;
+  display: flex;
+  height: 90vh;
+  // justify-content: space-around;
+  background-image: url("../../assets/landingimg.png");
+  background-repeat: no-repeat;
+  // background-position: fixed;
+  background-size: 100vw 100vh;
+  // height: 80vh;
+  color: white;
 }
 
-
-
-
-.landing-page{
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
-    min-height: 80vh;
+.landing-page_heading {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10%;
+  align-items: flex-start;
+  justify-content: center;
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
 }
 
-.landing-page_heading{
-    display: flex;
-    flex-direction: column;
-    padding: 10%;
+.landing-page_img {
+  padding: 10%;
 }
 
-.landing-page_img{
-    padding: 10%;
+.btn {
+  margin-top: 10px;
+  margin-right: 20px;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 10px;
+}
+.btn-accent {
+  color: black;
+  background: #ffcc00;
+}
+
+.btn-accent:hover {
+  background: none;
+  color: #fff;
+  border: 2px solid #ffcc00;
+}
+
+.btn-outline {
+  background: #fff;
+  background: none;
+  color: white;
+  border: 2px solid #ffcc00;
+}
+
+.btn-outline:hover {
+  color: black;
+  background: #ffcc00;
 }
