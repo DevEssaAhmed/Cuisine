@@ -5,14 +5,18 @@ import ProductList from "./components/ProductList/ProductList";
 import SearchBar from "./components/SearchBar/SearchBox";
 import HomePage from "./pages/HomePage/HomePage";
 import AboutPage from "./pages/AboutPage/AboutPage";
-import CheckoutPage from "./pages/CheckoutPage/CheckoutPage"
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 const appRouter = createBrowserRouter([
+  { path: "outlet", element: <Navbar /> },
+
   {
     path: "/",
     element: <HomePage />,
+    errorElement: <ErrorPage/>
   },
   {
     path: "/about",
