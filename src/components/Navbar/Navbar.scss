@@ -2,6 +2,12 @@
   display: flex;
   position: fixed;
   justify-content: space-between;
+  margin-bottom: 90px;
+   position: fixed;
+  top: 0;
+  left: 0;
+
+  overflow-y: hidden;
   align-items: center;
   // background-color: rgba(209, 213, 219);
   z-index: 1;
@@ -17,6 +23,7 @@
   // color: black;
   background-color: #ffcc00f5;
   background-color: black;
+  // position: static;
 }
 .logo {
   width: 220px;
@@ -58,7 +65,7 @@
   text-decoration: none;
   color: inherit;
   &:hover {
-    color: black;
+    color: #ffcc00
   }
 }
 .nav-button{

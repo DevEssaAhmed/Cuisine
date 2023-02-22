@@ -1,19 +1,45 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./Navbar.scss";
 import logo from "../../assets/logo.svg";
 import logo1 from "../../assets/logo1.svg";
+import { Link, useLocation } from "react-router-dom";
+
+
+
+
 
 const Navbar = () => {
   const [navColor, setColor] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const changeColor = () => {
-    if (window.scrollY >= 90) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
-  };
-  window.addEventListener("scroll", changeColor);
+
+ 
+ const location = useLocation();
+
+ const changeColor = () => {
+   if (window.scrollY <= 90 && location.pathname !== "/") {
+     setColor(false);
+   } else {
+     setColor(true);
+   }
+ };
+
+             
+ useEffect(() => {
+   window.addEventListener("scroll", changeColor);
+   return () => {
+     window.removeEventListener("scroll", changeColor);
+   };
+ }, []);
+
+ useEffect(() => {
+   if (location.pathname === "/") {
+     setColor(false);
+   } else {
+     setColor(true);
+   }
+ }, [location]);
+
+
   return (
     <div className={navColor ? 'nav scroll'  : 'nav'}>
 
@@ -21,18 +47,18 @@ const Navbar = () => {
 
       <ul className='nav-items'>
         <li>
-          <a className={navColor ? 'nav-links-scroll'  : 'nav-links'} href=''>Home</a>
+          <Link to="/" className={navColor ? 'nav-links-scroll'  : 'nav-links'} href=''>Home</Link>
         </li>
         <li>
-          <a className={navColor ? 'nav-links-scroll'  : 'nav-links'} href=''>About</a>
+          <Link to="/about" className={navColor ? 'nav-links-scroll'  : 'nav-links'} href=''>About</Link>
         </li>
         <li>
-          <a className={navColor ? 'nav-links-scroll'  : 'nav-links'} href=''>Contact</a>
+          <Link to="/contact" className={navColor ? 'nav-links-scroll'  : 'nav-links'} href=''>Contact</Link>
         </li>
         <li>
-          <a className={navColor ? 'nav-links-scroll'  : 'nav-links'} href=''>
+          <Link to="" className={navColor ? 'nav-links-scroll'  : 'nav-links'} href=''>
             <i className='fa-solid fa-cart-shopping'></i>
-          </a>
+          </Link>
         </li>
         <li>
           {isLoggedIn ? (
@@ -42,6 +68,7 @@ const Navbar = () => {
           )}
         </li>
       </ul>
+
     </div>
   );
 };

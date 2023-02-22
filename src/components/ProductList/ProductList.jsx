@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./ProductList.scss";
-import ProductCard from "../ProductCard/ProductCard";
+import ProductCard from "../RestaurantCard/RestaurantCard";
 // import data from "../../data/data.js";
 import SearchBox from "../SearchBar/SearchBox";
 import ShimmerUI from "../ShimmerUI/ShimmerUI";
 import { swiggy_api_URL } from "../../data/constants";
+
 
 const filterRestaurants = (searchText, restaurants) => {
   const filteredData = restaurants.filter((restaurant) =>
@@ -29,11 +30,17 @@ const ProductList = () => {
   }
 
   const onSearchChange = (event) => {
+    event.preventDefault();
     const searchFieldString = event.target.value.toLocaleLowerCase();
     setSearchText(searchFieldString);
+
+    // *! This makes search simultaneously
+    //  const data = filterRestaurants(searchText, allRestaurants);
+    //  setFilteredRestaurants(data);
   };
 
   const onButtonPress = () => {
+    event.preventDefault();
     const data = filterRestaurants(searchText, allRestaurants);
     setFilteredRestaurants(data);
   };
@@ -52,10 +59,13 @@ const ProductList = () => {
       />
 
       <div className='product-list'>
-        
-        {filteredRestaurants.map((item) => {
-          return <ProductCard key={item.data.id} {...item.data} />;
-        })}
+        {filteredRestaurants?.length === 0 ? (
+          <h1>No items found for the search term</h1>
+        ) : (
+          filteredRestaurants.map((item) => {
+            return <ProductCard key={item.data.id} {...item.data} />;
+          })
+        )}
       </div>
     </>
   );
