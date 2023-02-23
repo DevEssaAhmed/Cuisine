@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./ProductList.scss";
 import ProductCard from "../RestaurantCard/RestaurantCard";
-// import data from "../../data/data.js";
 import SearchBox from "../SearchBar/SearchBox";
 import ShimmerUI from "../ShimmerUI/ShimmerUI";
 import { swiggy_api_URL } from "../../data/constants";
-
+import { Link } from "react-router-dom";
 
 const filterRestaurants = (searchText, restaurants) => {
   const filteredData = restaurants.filter((restaurant) =>
@@ -58,12 +57,16 @@ const ProductList = () => {
         onButtonPress={onButtonPress}
       />
 
-      <div className='product-list'>
+      <div className="product-list">
         {filteredRestaurants?.length === 0 ? (
           <h1>No items found for the search term</h1>
         ) : (
-          filteredRestaurants.map((item) => {
-            return <ProductCard key={item.data.id} {...item.data} />;
+          filteredRestaurants.map((items) => {
+            return (
+              <Link to={"/restaurants/" + items.data.id} key={items.data.id}>
+                <ProductCard {...items.data} />
+              </Link>
+            );
           })
         )}
       </div>

@@ -1,0 +1,86 @@
+.about-page {
+  padding: 20px;
+  display: flex;
+  height: 95vh;
+  background: url("../../assets/aboutus.png");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}
+
+.about-page_details {
+  // width: 50vw
+  margin-right: 50%;
+  display: flex;
+  // flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10%;
+  align-items: flex-start;
+  justify-content: center;
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+}
+
+.btn {
+  margin-top: 10px;
+  margin-right: 20px;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 10px;
+}
+.btn-about {
+  color: var(--yellow);
+  background: black;
+}
+
+.btn-about:hover {
+  background: none;
+  color: black;
+  border: 2px solid #ffcc00;
+}
+
+.btn-outline-about {
+  background: #fff;
+  background: var(--yellow);
+  color: black;
+}
+
+.btn-outline-about:hover {
+  color: black;
+  background: none;
+  border: 2px solid #ffcc00;
+}
+
+@media (max-width: 1000px) {
+  .about-page {
+    padding: 20px;
+    height: auto;
+
+    background: url("../../assets/aboutus.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .about-page_details {
+    margin-top: 20px;
+    margin-right: 0;
+    text-align: center;
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10%;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 0.7rem;
+      margin-bottom: 5px;
+    }
+  }
+}

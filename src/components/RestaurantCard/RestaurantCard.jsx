@@ -2,7 +2,6 @@ import React from "react";
 import "./RestaurantCard.scss";
 import { IMG_CDN_URL } from "../../data/constants";
 
-
 const RestaurantCard = (props) => {
   const {
     name,
@@ -26,7 +25,7 @@ const RestaurantCard = (props) => {
   //   const { name, image, cusines, rating } = Products;
 
   return (
-    <div className='restaurant-card'>
+    <div className="restaurant-card">
       <img src={IMG_CDN_URL + cloudinaryImageId} />
       <h3>{name}</h3>
       <h5>{cuisines.join(", ")}</h5>
@@ -41,7 +40,7 @@ const RestaurantCard = (props) => {
               : { color: "white" }
           }
         >
-          <i className='fa-solid fa-star'></i>
+          <i className="fa-solid fa-star"></i>
           {avgRating}
         </h4>
         <h4>•</h4>
